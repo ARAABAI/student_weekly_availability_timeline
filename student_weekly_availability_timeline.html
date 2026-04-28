@@ -1,0 +1,335 @@
+<html>
+								<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
+							<head><style>
+*{box-sizing:border-box;margin:0;padding:0}
+.container{padding:1rem 0;font-family:var(--font-sans);color:var(--color-text-primary)}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;align-items:center}
+.toolbar label{font-size:12px;color:var(--color-text-secondary);margin-right:2px}
+select,button{font-size:12px;padding:4px 8px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);cursor:pointer}
+select:focus,button:focus{outline:none;border-color:var(--color-border-primary)}
+.legend{display:flex;gap:12px;margin-bottom:1rem;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--color-text-secondary)}
+.leg-box{width:16px;height:12px;border-radius:3px;flex-shrink:0}
+.fixed-box{background:#534AB7}
+.var-box{background:#0F6E56}
+.empty-box{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary)}
+.grid-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:540px}
+thead th{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-align:center;padding:6px 4px;border-bottom:0.5px solid var(--color-border-tertiary)}
+thead th.student-col{text-align:left;padding-left:8px;min-width:120px}
+tbody tr:nth-child(odd){background:var(--color-background-primary)}
+tbody tr:nth-child(even){background:var(--color-background-secondary)}
+tbody tr:hover{filter:brightness(0.96)}
+td.name-cell{font-size:12px;font-weight:500;padding:4px 8px;white-space:nowrap;color:var(--color-text-primary);min-width:120px;border-right:0.5px solid var(--color-border-tertiary)}
+td.day-cell{padding:3px 2px;text-align:center;min-width:64px}
+.cell-inner{border-radius:5px;overflow:hidden;min-height:28px;display:flex;flex-direction:column}
+.seg{display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:500;line-height:1.1}
+.seg.fixed{background:#534AB7}
+.seg.variable{background:#0F6E56}
+.seg.empty{background:var(--color-background-secondary);border:0.5px dashed var(--color-border-tertiary);color:var(--color-text-tertiary)}
+.total-row td{border-top:0.5px solid var(--color-border-secondary);font-size:11px;font-weight:500;padding:4px 2px;text-align:center;color:var(--color-text-secondary)}
+.total-row td.name-cell{text-align:left}
+.stats-row{display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap}
+.stat-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;flex:1;min-width:100px}
+.stat-label{font-size:11px;color:var(--color-text-secondary)}
+.stat-val{font-size:18px;font-weight:500;color:var(--color-text-primary)}
+.filter-group{display:flex;align-items:center;gap:4px}
+.no-data{text-align:center;padding:2rem;color:var(--color-text-secondary);font-size:13px}
+
+/* Editor panel */
+.editor-toggle-row{display:flex;align-items:center;gap:8px;margin-top:1.5rem}
+.editor-toggle-btn{display:flex;align-items:center;gap:6px;font-size:12px;padding:5px 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-secondary);cursor:pointer;transition:background 0.15s}
+.editor-toggle-btn:hover{background:var(--color-background-secondary)}
+.editor-toggle-btn .arrow{display:inline-block;transition:transform 0.2s;font-size:10px}
+.editor-toggle-btn.open .arrow{transform:rotate(90deg)}
+.editor-panel{display:none;margin-top:8px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-lg);overflow:hidden}
+.editor-panel.open{display:block}
+.editor-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--color-background-secondary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.editor-header span{font-size:12px;font-weight:500;color:var(--color-text-secondary)}
+.editor-actions{display:flex;gap:6px}
+.btn-apply{font-size:12px;padding:4px 10px;border:0.5px solid #534AB7;border-radius:var(--border-radius-md);background:transparent;color:#534AB7;cursor:pointer;font-weight:500}
+.btn-apply:hover{background:#534AB7;color:#fff}
+.btn-reset-data{font-size:12px;padding:4px 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer}
+.btn-reset-data:hover{background:var(--color-background-secondary)}
+.editor-body{position:relative}
+textarea#json-editor{display:block;width:100%;min-height:320px;max-height:520px;font-family:var(--font-mono);font-size:12px;line-height:1.6;padding:14px;border:none;background:var(--color-background-primary);color:var(--color-text-primary);resize:vertical;outline:none}
+.editor-footer{display:flex;align-items:center;justify-content:space-between;padding:6px 14px;background:var(--color-background-secondary);border-top:0.5px solid var(--color-border-tertiary)}
+.editor-hint{font-size:11px;color:var(--color-text-tertiary)}
+.editor-status{font-size:11px;font-weight:500}
+.editor-status.ok{color:#0F6E56}
+.editor-status.err{color:#A32D2D}
+.schema-tip{font-size:11px;color:var(--color-text-tertiary);padding:8px 14px;border-top:0.5px solid var(--color-border-tertiary);line-height:1.6;background:var(--color-background-secondary)}
+.schema-tip code{font-family:var(--font-mono);background:var(--color-background-primary);padding:1px 4px;border-radius:3px;border:0.5px solid var(--color-border-tertiary)}
+</style>
+
+</head><body><div class="container">
+<h2 class="sr-only">Weekly student availability timeline with fixed and variable time slots</h2>
+
+<div class="toolbar">
+  <div class="filter-group">
+    <label>Students</label>
+    <select id="sel-student" onchange="render()"><option value="all">All students</option></select>
+  </div>
+  <div class="filter-group">
+    <label>Day</label>
+    <select id="sel-day" onchange="render()"><option value="all">All days</option></select>
+  </div>
+  <div class="filter-group">
+    <label>Category</label>
+    <select id="sel-cat" onchange="render()">
+      <option value="all">Fixed + Variable</option>
+      <option value="fixed">Fixed only</option>
+      <option value="variable">Variable only</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Min hours/day</label>
+    <select id="sel-min" onchange="render()">
+      <option value="0">Any</option>
+      <option value="1">≥1h</option>
+      <option value="2">≥2h</option>
+      <option value="4">≥4h</option>
+      <option value="8">≥8h</option>
+    </select>
+  </div>
+  <button onclick="resetFilters()">Reset filters</button>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="leg-box fixed-box"></div>Fixed time</div>
+  <div class="legend-item"><div class="leg-box var-box"></div>Variable time</div>
+  <div class="legend-item"><div class="leg-box empty-box"></div>Unavailable</div>
+</div>
+
+<div class="grid-wrap">
+  <table id="main-table">
+    <thead id="thead"></thead>
+    <tbody id="tbody"></tbody>
+    <tfoot id="tfoot"></tfoot>
+  </table>
+</div>
+
+<div class="stats-row" id="stats-row"></div>
+
+<!-- Editor toggle -->
+<div class="editor-toggle-row">
+  <button class="editor-toggle-btn" id="editor-toggle-btn" onclick="toggleEditor()">
+    <span class="arrow">▶</span> Edit data (JSON)
+  </button>
+</div>
+
+<div class="editor-panel" id="editor-panel">
+  <div class="editor-header">
+    <span>Student data — edit JSON directly</span>
+    <div class="editor-actions">
+      <button class="btn-reset-data" onclick="resetEditorToOriginal()">Reset to original</button>
+      <button class="btn-apply" onclick="applyJSON()">Apply changes</button>
+    </div>
+  </div>
+  <div class="editor-body">
+    <textarea id="json-editor" spellcheck="false" oninput="liveValidate()"></textarea>
+  </div>
+  <div class="editor-footer">
+    <span class="editor-hint">Edit, then click <strong>Apply changes</strong>. Days: Saturday · Sunday · Monday · Tuesday · Wednesday · Thursday · Friday</span>
+    <span class="editor-status ok" id="editor-status">✓ Valid JSON</span>
+  </div>
+  <div class="schema-tip">
+    Schema per entry: <code>{ "name": "...", "fixed": { "Monday": 2 }, "variable": { "Friday": 1 } }</code> — omit a day or set to <code>0</code> for no availability. Add a new object to the array to add a student. Delete an object to remove one.
+  </div>
+</div>
+</div>
+
+<script>
+const DAYS=['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday'];
+const SHORT={Saturday:'Sat',Sunday:'Sun',Monday:'Mon',Tuesday:'Tue',Wednesday:'Wed',Thursday:'Thu',Friday:'Fri'};
+
+const ORIGINAL=[
+  {name:'Zakarija Zaky',fixed:{Saturday:2,Monday:2,Wednesday:2},variable:{Friday:2}},
+  {name:'Ahmed Zaky',fixed:{Sunday:8},variable:{Monday:2,Tuesday:2,Wednesday:2,Thursday:2}},
+  {name:'Mariam Zaky',fixed:{Sunday:1,Monday:1,Tuesday:1,Wednesday:1,Thursday:1},variable:{Sunday:1,Monday:1,Tuesday:1,Wednesday:1,Thursday:1}},
+  {name:'Moutassim',fixed:{Thursday:8,Saturday:4,Sunday:4},variable:{Tuesday:2,Wednesday:8}},
+  {name:'Ahmed Hisham',fixed:{},variable:{Saturday:2,Thursday:1}},
+  {name:'Hady',fixed:{Sunday:2},variable:{Saturday:1,Monday:1,Tuesday:1,Wednesday:1,Thursday:1,Friday:1}},
+  {name:'Ahmed Rady',fixed:{Saturday:1,Sunday:1,Monday:1,Tuesday:1,Wednesday:1,Thursday:1,Friday:1},variable:{Saturday:2,Sunday:2,Monday:2,Tuesday:2,Wednesday:2,Thursday:2,Friday:2}},
+  {name:'Salma',fixed:{Sunday:2,Monday:2,Tuesday:2,Wednesday:2,Thursday:2},variable:{}},
+  {name:'Moumen',fixed:{Saturday:4,Sunday:4,Monday:4,Tuesday:4,Wednesday:4,Thursday:4},variable:{}}
+];
+
+let DATA = JSON.parse(JSON.stringify(ORIGINAL));
+
+function getFilters(){
+  return {
+    student: document.getElementById('sel-student').value,
+    day: document.getElementById('sel-day').value,
+    cat: document.getElementById('sel-cat').value,
+    min: parseInt(document.getElementById('sel-min').value)
+  };
+}
+
+function resetFilters(){
+  ['sel-student','sel-day','sel-cat','sel-min'].forEach(id=>{document.getElementById(id).selectedIndex=0});
+  render();
+}
+
+function render(){
+  const {student,day,cat,min}=getFilters();
+  const days=day==='all'?DAYS:[day];
+  let students=DATA.filter(s=>student==='all'||s.name===student);
+  if(min>0) students=students.filter(s=>days.some(d=>{
+    let t=(cat==='all'||cat==='fixed'?s.fixed[d]||0:0)+(cat==='all'||cat==='variable'?s.variable[d]||0:0);
+    return t>=min;
+  }));
+
+  const thead=document.getElementById('thead');
+  const tbody=document.getElementById('tbody');
+  const tfoot=document.getElementById('tfoot');
+  thead.innerHTML=''; tbody.innerHTML=''; tfoot.innerHTML='';
+
+  if(!students.length){
+    tbody.innerHTML=`<tr><td colspan="${days.length+2}" class="no-data">No students match the current filters.</td></tr>`;
+    document.getElementById('stats-row').innerHTML='';
+    return;
+  }
+
+  const hrow=document.createElement('tr');
+  let th0=document.createElement('th'); th0.className='student-col'; th0.textContent='Student'; hrow.appendChild(th0);
+  days.forEach(d=>{let th=document.createElement('th'); th.textContent=SHORT[d]; hrow.appendChild(th)});
+  let thT=document.createElement('th'); thT.textContent='Total'; hrow.appendChild(thT);
+  thead.appendChild(hrow);
+
+  let dayTotFixed={},dayTotVar={};
+  days.forEach(d=>{dayTotFixed[d]=0;dayTotVar[d]=0});
+
+  students.forEach(s=>{
+    const tr=document.createElement('tr');
+    let td0=document.createElement('td'); td0.className='name-cell'; td0.textContent=s.name; tr.appendChild(td0);
+    let rowTotal=0;
+    days.forEach(d=>{
+      const f=(cat==='all'||cat==='fixed')?(s.fixed[d]||0):0;
+      const v=(cat==='all'||cat==='variable')?(s.variable[d]||0):0;
+      dayTotFixed[d]+=f; dayTotVar[d]+=v;
+      const td=document.createElement('td'); td.className='day-cell';
+      const inner=document.createElement('div'); inner.className='cell-inner';
+      if(f===0&&v===0){
+        const seg=document.createElement('div'); seg.className='seg empty'; seg.style.height='28px'; seg.textContent='—'; inner.appendChild(seg);
+      } else {
+        const total=f+v;
+        if(f>0){const seg=document.createElement('div'); seg.className='seg fixed'; const h=Math.max(18,Math.round((f/total)*56)); seg.style.height=h+'px'; seg.textContent=f+'h'; inner.appendChild(seg)}
+        if(v>0){const seg=document.createElement('div'); seg.className='seg variable'; const h=Math.max(18,Math.round((v/total)*56)); seg.style.height=h+'px'; seg.textContent=v+'h'; inner.appendChild(seg)}
+      }
+      td.appendChild(inner); tr.appendChild(td);
+      rowTotal+=f+v;
+    });
+    let tdT=document.createElement('td'); tdT.className='day-cell';
+    const ti=document.createElement('div'); ti.className='cell-inner';
+    const ts=document.createElement('div'); ts.className='seg'; ts.style.cssText='height:28px;background:var(--color-background-secondary);color:var(--color-text-primary);font-weight:500'; ts.textContent=rowTotal+'h'; ti.appendChild(ts); tdT.appendChild(ti); tr.appendChild(tdT);
+    tbody.appendChild(tr);
+  });
+
+  const ftr=document.createElement('tr'); ftr.className='total-row';
+  let ftd0=document.createElement('td'); ftd0.className='name-cell'; ftd0.textContent='Day total'; ftr.appendChild(ftd0);
+  let grandF=0,grandV=0;
+  days.forEach(d=>{
+    const td=document.createElement('td');
+    const f=dayTotFixed[d],v=dayTotVar[d]; grandF+=f; grandV+=v;
+    let parts=[];
+    if((cat==='all'||cat==='fixed')&&f>0) parts.push(`<span style="color:#534AB7">${f}h F</span>`);
+    if((cat==='all'||cat==='variable')&&v>0) parts.push(`<span style="color:#0F6E56">${v}h V</span>`);
+    td.innerHTML=parts.join(' <span style="color:var(--color-text-tertiary)">+</span> ')||(f+v===0?'—':'');
+    ftr.appendChild(td);
+  });
+  let tdG=document.createElement('td');
+  let gp=[];
+  if((cat==='all'||cat==='fixed')&&grandF>0) gp.push(`<span style="color:#534AB7">${grandF}h</span>`);
+  if((cat==='all'||cat==='variable')&&grandV>0) gp.push(`<span style="color:#0F6E56">${grandV}h</span>`);
+  tdG.innerHTML=gp.join('+'); ftr.appendChild(tdG);
+  tfoot.appendChild(ftr);
+
+  const totalH=grandF+grandV;
+  const avg=students.length?Math.round((totalH/students.length)*10)/10:0;
+  const busiestDay=days.reduce((a,d)=>(dayTotFixed[d]+dayTotVar[d])>(dayTotFixed[a]+dayTotVar[a])?d:a,days[0]);
+  document.getElementById('stats-row').innerHTML=`
+    <div class="stat-card"><div class="stat-label">Total hours shown</div><div class="stat-val">${totalH}h</div></div>
+    <div class="stat-card"><div class="stat-label">Fixed hours</div><div class="stat-val" style="color:#534AB7">${grandF}h</div></div>
+    <div class="stat-card"><div class="stat-label">Variable hours</div><div class="stat-val" style="color:#0F6E56">${grandV}h</div></div>
+    <div class="stat-card"><div class="stat-label">Avg per student</div><div class="stat-val">${avg}h</div></div>
+    <div class="stat-card"><div class="stat-label">Busiest day</div><div class="stat-val" style="font-size:14px">${busiestDay}</div></div>
+  `;
+}
+
+function rebuildStudentFilter(){
+  const sel=document.getElementById('sel-student');
+  const prev=sel.value;
+  sel.innerHTML='<option value="all">All students</option>';
+  DATA.forEach(s=>{const o=document.createElement('option'); o.value=s.name; o.textContent=s.name; sel.appendChild(o)});
+  if([...sel.options].some(o=>o.value===prev)) sel.value=prev;
+}
+
+// Editor
+function toggleEditor(){
+  const btn=document.getElementById('editor-toggle-btn');
+  const panel=document.getElementById('editor-panel');
+  const open=panel.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  if(open) syncEditorFromData();
+}
+
+function syncEditorFromData(){
+  document.getElementById('json-editor').value=JSON.stringify(DATA,null,2);
+  setStatus(true,'✓ Valid JSON');
+}
+
+function liveValidate(){
+  try{JSON.parse(document.getElementById('json-editor').value); setStatus(true,'✓ Valid JSON')}
+  catch(e){setStatus(false,'✗ '+e.message.split('\n')[0])}
+}
+
+function setStatus(ok,msg){
+  const el=document.getElementById('editor-status');
+  el.textContent=msg; el.className='editor-status '+(ok?'ok':'err');
+}
+
+function applyJSON(){
+  try{
+    const parsed=JSON.parse(document.getElementById('json-editor').value);
+    if(!Array.isArray(parsed)) throw new Error('Root must be an array');
+    parsed.forEach((s,i)=>{
+      if(typeof s.name!=='string'||!s.name.trim()) throw new Error(`Entry ${i}: "name" must be a non-empty string`);
+      if(typeof s.fixed!=='object'||Array.isArray(s.fixed)) throw new Error(`Entry ${i} (${s.name}): "fixed" must be an object`);
+      if(typeof s.variable!=='object'||Array.isArray(s.variable)) throw new Error(`Entry ${i} (${s.name}): "variable" must be an object`);
+    });
+    DATA=parsed;
+    rebuildStudentFilter();
+    render();
+    setStatus(true,'✓ Applied successfully');
+    // brief green flash on button
+    const btn=document.querySelector('.btn-apply');
+    btn.style.background='#0F6E56'; btn.style.color='#fff';
+    setTimeout(()=>{btn.style.background=''; btn.style.color=''},900);
+  } catch(e){
+    setStatus(false,'✗ '+e.message);
+  }
+}
+
+function resetEditorToOriginal(){
+  DATA=JSON.parse(JSON.stringify(ORIGINAL));
+  rebuildStudentFilter();
+  render();
+  syncEditorFromData();
+}
+
+(function init(){
+  DATA.forEach(s=>{const o=document.createElement('option'); o.value=s.name; o.textContent=s.name; document.getElementById('sel-student').appendChild(o)});
+  DAYS.forEach(d=>{const o=document.createElement('option'); o.value=d; o.textContent=d; document.getElementById('sel-day').appendChild(o)});
+  render();
+})();
+</script>
+</body></html>
