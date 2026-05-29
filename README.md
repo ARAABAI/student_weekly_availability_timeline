@@ -1,2 +1,2 @@
-# student_weekly_availability_timeline
-Student Weekly Availability Timeline
+# Members weekly availability timeline
+Members Weekly Availability Timeline
